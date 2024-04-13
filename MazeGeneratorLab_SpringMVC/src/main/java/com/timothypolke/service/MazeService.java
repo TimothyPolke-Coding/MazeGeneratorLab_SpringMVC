@@ -18,6 +18,7 @@ import com.timothypolke.puzzle.Puzzle;
 @Service
 @Transactional
 public class MazeService implements IMazeService {
+	
 	@Autowired
 	ISizeService sizeService;
 	@Autowired
@@ -25,6 +26,7 @@ public class MazeService implements IMazeService {
 	
 	@Autowired
 	IMazeDAO mazeDAO;
+	
 	@Override
 	public void createorupdate(Maze maze) {
 		

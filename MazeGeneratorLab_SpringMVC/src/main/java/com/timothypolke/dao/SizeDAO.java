@@ -15,6 +15,7 @@ public class SizeDAO implements ISizeDAO {
 
 	@Autowired
 	SessionFactory sessionFactory;
+	
 	@Override
 	public void createorupdate(Size size) {
 		Session session=sessionFactory.getCurrentSession();
@@ -30,15 +31,13 @@ public class SizeDAO implements ISizeDAO {
 	@Override
 	public Size read(UUID id) {
 		Session session=sessionFactory.getCurrentSession();
-		Size size=session.get(Size.class, id);
-		return size;
+		return session.get(Size.class, id);
 	}
 
 	@Override
 	public List<Size> readAll() {
 		Session session=sessionFactory.getCurrentSession();
-		List<Size> sizes=session.createQuery("from Size").getResultList();
-		return sizes;
+		return session.createQuery("from Size").getResultList();
 	}
 	
 }

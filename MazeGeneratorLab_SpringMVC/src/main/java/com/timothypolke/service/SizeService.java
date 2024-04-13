@@ -17,6 +17,7 @@ public class SizeService implements ISizeService {
 
 	@Autowired
 	ISizeDAO sizeDAO;
+	
 	@Override
 	public void createorupdate(Size size) {
 		sizeDAO.createorupdate(size);

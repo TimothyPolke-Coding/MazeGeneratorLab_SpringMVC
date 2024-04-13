@@ -15,6 +15,7 @@ public class MazeDAO implements IMazeDAO {
 
 	@Autowired
 	SessionFactory sessionFactory;
+	
 	@Override
 	public void createorupdate(Maze maze) {
 		Session session=sessionFactory.getCurrentSession();
@@ -30,15 +31,13 @@ public class MazeDAO implements IMazeDAO {
 	@Override
 	public Maze read(UUID id) {
 		Session session=sessionFactory.getCurrentSession();
-		Maze maze=session.get(Maze.class, id);
-		return maze;
+		return session.get(Maze.class, id);
 	}
 
 	@Override
 	public List<Maze> readAll() {
 		Session session=sessionFactory.getCurrentSession();
-		List<Maze> mazes=session.createQuery("from Maze").getResultList();
-		return mazes;
+		return session.createQuery("from Maze").getResultList();
 	}
 	
 }

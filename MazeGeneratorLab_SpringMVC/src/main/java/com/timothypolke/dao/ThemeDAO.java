@@ -15,6 +15,7 @@ public class ThemeDAO implements IThemeDAO {
 
 	@Autowired
 	SessionFactory sessionFactory;
+	
 	@Override
 	public void createorupdate(Theme theme) {
 		Session session=sessionFactory.getCurrentSession();
@@ -30,15 +31,13 @@ public class ThemeDAO implements IThemeDAO {
 	@Override
 	public Theme read(UUID id) {
 		Session session=sessionFactory.getCurrentSession();
-		Theme theme=session.get(Theme.class, id);
-		return theme;
+		return session.get(Theme.class, id);
 	}
 
 	@Override
 	public List<Theme> readAll() {
 		Session session=sessionFactory.getCurrentSession();
-		List<Theme> themes=session.createQuery("from Theme").getResultList();
-		return themes;
+		return session.createQuery("from Theme").getResultList();
 	}
 	
 }
