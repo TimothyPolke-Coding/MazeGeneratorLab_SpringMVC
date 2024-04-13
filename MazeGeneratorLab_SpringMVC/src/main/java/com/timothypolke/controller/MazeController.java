@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -42,7 +43,7 @@ public class MazeController{
 		mapModel.put("maze", new Maze());
 		return new ModelAndView("registermaze", mapModel);
 	}
-	@RequestMapping(value="save",method=RequestMethod.POST)
+	@PostMapping(value="save")
 	public ModelAndView save(Model model,@ModelAttribute("maze") Maze maze){
 		mazeservice.createorupdate(maze);
 		return new ModelAndView("redirect:/mazes/");

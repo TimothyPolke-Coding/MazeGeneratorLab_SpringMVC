@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -24,7 +25,7 @@ public class SizeController{
 		model.addAttribute("size",new Size());
 		return new ModelAndView("registersize","",model);
 	}
-	@RequestMapping(value="save",method=RequestMethod.POST)
+	@PostMapping(value="save")
 	public ModelAndView save(Model model,@ModelAttribute("size") Size size){
 		sizeservice.createorupdate(size);
 		model.addAttribute("size",size);
